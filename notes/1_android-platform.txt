@@ -1,0 +1,58 @@
+# Android Platform Overview
+http://developer.android.com/training/index.html  
+The android architecture is comprised of:  
+* Linux Kernel
+  * Drivers and Power Management
+* Libraries and Runtime
+  * Surface Manager, OpenGL, SGL, SSL, FreeType, Media Framework, SQLite, Webkit
+* Application Framework
+  * Activity Manager, Window Manager, Content Providers, Location Manager, etc
+* Applications
+  * Core apps that come with device (home/browser)
+
+## Linux Kernel
+Standard:  
+* Security - Permissions
+* Memory and Process Management
+* File / Network IO
+* Device Drivers
+
+Android Specific:  
+* Power Management
+* Android Shared Memory
+* Low Memory Killer
+* Interprocess Communication (binder)
+
+## Libraries 
+* System C Lib - Bionic LIBC
+* Surface Manager - Display Management
+* Media Framework - A/V
+* Webkit - rendering web pages
+* OpenGL - high performance graphics
+* SQLite - RDBS engine
+* Android Runtime
+  * Core Java Libraries - http://developer.android.com/reference/packages.html
+    * Basic libraries -- JAVA.*, JAVAX.*
+    * App Lifecycle -- ANDROID.*
+    * Internet / Web Services -- ORG.*
+    * Unit Testing -- JUNIT.*
+  * Dalvik Virtual Machine - executes the android applications
+    Usual Workflow:  
+    Write application in Java  
+    Compiled into bytecode  
+    DX converts bytecode into DEX bytecode format CLASSES.DEX  
+    Dalvik will execute the classes.dex file  
+    Dalvik VM Internals: http://www.youtube.com/watch?v=ptjedOZEXPM
+## Application Framework Layer
+reusable software to be used by apps  
+  * Package Manager - keeps track of all applications installed
+  * Window Manager - manages the windows
+  * View System - icons, text entry, buttons, etc
+  * Resource Manager - manages non-compiled reosurces that make up an app - strings graphics and layout files etc
+  * Activity Manager - manages app lifecycle and navigation stack
+  * Content Providers - DBs allowing apps to store and share info - inter-application data sharing
+  * Location Manager - receive location and movement info - gps
+  * Notification Manager - self descriptive
+
+## Application Layer
+Standard apps include home, contacts, phone, browser, email reader
